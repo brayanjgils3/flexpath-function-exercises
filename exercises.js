@@ -1,26 +1,8 @@
 import { fileURLToPath } from "url";
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  /*
-
-    To run the code you write for each exercise, change the `exercise_01()` 
-    code below to match the EXACT name
-    of the exercise, as it is written in the line `function exercise_xx`.
-    
-     For Example:
-
-     If I want to run exercise_05 below, 
-     I would change the code below from "exercise_01()" to
-     "exercise_05()", save this file. 
-		 
-		 Then, when I run this file by running `node exercise.js`
-     in the VS Code terminal while inside this folder, your code 
-     for exercise_05 will run.
-
-  */
-
-  // Modify the line of code BELOW to run a different exercise
-  exercise_01();
+  // Currently running:
+  exercise_04();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -41,7 +23,12 @@ function exercise_01() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function calculateArea(radius) {
+    let value = Math.PI * radius * radius;
+    console.log(value);
+  }
+
+  calculateArea(25);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -61,7 +48,11 @@ function exercise_02() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let radiusValue = function calculateArea(radius) { //Professor solution doesnt include "calculateArea"
+    return Math.PI * radius * radius;
+  }
+
+  console.log(radiusValue(5));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -78,8 +69,9 @@ function exercise_03() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  const calculateArea = (radius) => Math.PI * radius * radius;
 
+  console.log(calculateArea(5));
   // CODE IN THE OPEN LINES ABOVE
 }
 
@@ -99,7 +91,19 @@ function exercise_04() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function isValidEmail(email) {
+    const atSymbolIndex = email.indexOf("@");
+    if (atSymbolIndex === -1) return false;
+
+    const dotIndex = email.indexOf(".", atSymbolIndex);
+    if (dotIndex === -1) return false;
+    
+    return true;
+  }
+
+  console.log(isValidEmail("example@hotmail.com"));
+  console.log(isValidEmail("example"));
+  console.log(isValidEmail("ex.ample@hotmailcom"));
 
   // CODE IN THE OPEN LINES ABOVE
 }
