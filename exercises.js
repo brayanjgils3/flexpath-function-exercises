@@ -2,7 +2,7 @@ import { fileURLToPath } from "url";
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // Currently running:
-  exercise_04();
+  exercise_05();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -48,11 +48,11 @@ function exercise_02() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let radiusValue = function calculateArea(radius) { //Professor solution doesnt include "calculateArea"
+  let calculateArea = function (radius) { 
     return Math.PI * radius * radius;
   }
 
-  console.log(radiusValue(5));
+  console.log(calculateArea(5));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -124,7 +124,15 @@ function exercise_05() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function greet(name, greeting) {
+    if (greeting === undefined) {
+      greeting = "Hello";
+    };
+    console.log(greeting + ", " + name);
+  };
+
+  greet("David", "Hi");
+  greet("Brayan");
 
   // CODE IN THE OPEN LINES ABOVE
 }
