@@ -1,8 +1,9 @@
 import { fileURLToPath } from "url";
+import { compileFunction } from "vm";
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // Currently running:
-  exercise_05();
+  exercise_10();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -124,14 +125,14 @@ function exercise_05() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  function greet(name, greeting) {
+  function greet(name, greeting) { //Logic we didn´t use: (name, greeting = "Hello")
     if (greeting === undefined) {
       greeting = "Hello";
     };
-    console.log(greeting + ", " + name);
+    console.log(greeting + ", " + name); //Professor used a return with literal strings: return `${greeting}, ${name}!`;
   };
 
-  greet("David", "Hi");
+  greet("David", "Hi"); //And called the function this way: console.log(greet("David", "Hi"));
   greet("Brayan");
 
   // CODE IN THE OPEN LINES ABOVE
@@ -161,8 +162,9 @@ function exercise_06() {
 
   /*
 
-    Write what you think will happen IN THIS COMMENT BLOCK.
-    Then explain why the code behaved as it did.
+    We will have "Local" first, then "Global" in console.
+    This because the last console.log doesn´t have access to the local scope that changes the message variable to the "Local" string.
+    Then we get the global scope, which is the "Global" string, out of the local scope of the showMessage() function.
 
   */
 }
@@ -186,7 +188,17 @@ function exercise_07() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function incrementCounter() {
+    let counter = 0;
+    counter++;
+    console.log(counter);
+  }
+
+  //It will log "1" to the console twice because the variable has a local scope and the variable doesn´t store in memory.
+  //It will be created and increased every time the function is called. And the variable can´t be reached out of the function.
+
+  incrementCounter();
+  incrementCounter();
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -205,7 +217,17 @@ function exercise_08() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function makeMultiplier(multiplier) {
+    return function(number) {
+      return multiplier * number;
+    };
+  };
+
+  const double = makeMultiplier(2);
+  console.log(double(5));
+
+  const costOfLivingAdjustment = makeMultiplier(1.03);
+  console.log(costOfLivingAdjustment(50000));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -232,7 +254,17 @@ function exercise_09() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function factorial(n) {
+    if (n < 0) {
+      console.log("Bad number input");
+      return
+    }
+    if (n === 0 || n === 1) return 1;
+    return n * factorial(n - 1);
+  };
+
+  console.log(factorial(5));
+  console.log(factorial(-4));
 
   // CODE IN THE OPEN LINES ABOVE
 }
