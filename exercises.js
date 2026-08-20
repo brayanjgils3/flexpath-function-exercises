@@ -3,7 +3,7 @@ import { compileFunction } from "vm";
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // Currently running:
-  exercise_10();
+  exercise_19();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -282,7 +282,9 @@ function exercise_10() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+  };
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -302,11 +304,9 @@ function exercise_11() {
   const numbers = [1, 2, 3, 4, 5];
   let sum = 0;
 
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
+  let finalSum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, sum,);
 
-  console.log(sum); // Outputs: 15
+  console.log(finalSum); // Outputs: 15
 
   // REPLACE the code above
 }
@@ -326,7 +326,9 @@ function exercise_12() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  const result = numbers.filter((number) => number % 2 === 0);
+
+  console.log(result);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -348,7 +350,19 @@ function exercise_13() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let num = 17;
+  let obj = {id: 1};
+
+  function numb() {
+    num = 11;
+    obj.id = 2;
+  }
+
+  console.log(num);
+  console.log(obj);
+
+  //I didn´t know the answer, but trying the code by myself and checking mdn I noticed that primitives can´t be changed through functions
+  //And the primitives only share a "copy" of its content when used for a function, and an object actually shares his location in memory, which allows the function to modify it
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -366,7 +380,15 @@ function exercise_14() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let obj = {id: 1};
+
+  function push(ob) {
+    ob.name = "braya";
+    console.log(obj);
+  }
+
+  console.log(push(obj));
+  console.log(obj);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -392,7 +414,9 @@ function exercise_15() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  const seeker = users.find(({name}) => name === "Bob");
+
+  console.log(seeker);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -415,7 +439,9 @@ function exercise_16() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  Object.entries(person).forEach(([key, value]) => {
+    console.log(`${key}: ${value}`);
+  });
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -434,7 +460,17 @@ function exercise_17() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function capitalizeStrings(string) {
+    return string.map(
+      (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+    );
+  }
+
+  const lowerCaseStrings = ["apple", "banana", "pear"];
+
+  const capitalizedStrings = capitalizeStrings(lowerCaseStrings);
+
+  console.log(capitalizedStrings);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -457,7 +493,12 @@ function exercise_18() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function power(base, exponent = 2) {
+    return Math.pow(base, exponent);
+  };
+
+  console.log(power(3, 3));
+  console.log(power(4));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -478,7 +519,9 @@ function exercise_19() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  (function name(params) {
+    console.log("Inmediately Invoked");
+  })();
 
   // CODE IN THE OPEN LINES ABOVE
 }
